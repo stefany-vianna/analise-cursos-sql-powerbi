@@ -34,68 +34,28 @@ Construir uma solução capaz de responder perguntas como:
 - Power Query
 - DAX
 - Visual Studio Code
-- Git / GitHub
+- Git
+- GitHub
 
 ---
 
 ## Arquitetura do projeto
 
-Fluxo principal:
-
-PostgreSQL → Views SQL → Power BI → Dashboard
-
-A preparação e parte da lógica dos dados foram realizadas no PostgreSQL.  
-O Power BI foi utilizado para modelagem analítica, medidas DAX, filtros e visualização.
-
----
-
-## Modelagem de dados
-
-O banco foi estruturado inicialmente com quatro tabelas principais:
-
-- `alunos`
-- `cursos`
-- `matriculas`
-- `pagamentos`
-
-### Relacionamentos
-
-- Um aluno pode possuir várias matrículas.
-- Um curso pode possuir várias matrículas.
-- Uma matrícula pode possuir vários pagamentos.
-
-Também foram criadas views específicas para consumo pelo Power BI:
-
-- `vw_matriculas_detalhadas`
-- `vw_financeiro`
-- `vw_resumo_cursos`
-
-### Modelo utilizado no Power BI
-
-![Modelo de dados](imagens/modelo_dados.png)
-
----
-
-## Estrutura do repositório
+Fluxo principal da solução:
 
 ```text
-analise-cursos-sql-powerbi/
-│
-├── README.md
-│
-├── docs/
-│
-├── imagens/
-│   ├── dashboard_visao_geral.png
-│   ├── dashboard_cursos.png
-│   ├── dashboard_financeiro.png
-│   └── modelo_dados.png
-│
-├── powerbi/
-│   └── dashboard_cursos.pbix
-│
-└── sql/
-    ├── 01_criacao_tabelas.sql
-    ├── 02_insercao_dados.sql
-    ├── 03_consultas_analiticas.sql
-    └── 04_views_powerbi.sql
+Dados fictícios
+      ↓
+PostgreSQL / Neon
+      ↓
+Modelagem relacional
+      ↓
+Consultas SQL
+      ↓
+Views
+      ↓
+Power BI
+      ↓
+DAX e KPIs
+      ↓
+Dashboard analítico
