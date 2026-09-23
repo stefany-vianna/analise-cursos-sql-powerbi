@@ -1,0 +1,23 @@
+# Credenciais
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Arquivos temporários
+*.tmp
+*.temp
+~$*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Power BI temporário
+*.lock
+
+# VS Code local
+.vscode/
